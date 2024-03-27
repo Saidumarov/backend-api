@@ -69,20 +69,31 @@ app.get("/product/:id", async (req, res) => {
 });
 
 app.post("/newProduct", async (req, res) => {
-  const { name, user, imgags, dec, price, piece, per_month, old_price, type } =
-    req.body;
+  const {
+    name,
+    user,
+    imgags,
+    description,
+    realPrice,
+    piece,
+    perMonth,
+    oldPrice,
+    category,
+    titel,
+  } = req.body;
 
   try {
     const newProduct = new Product({
       name,
       user,
+      titel,
       imgags,
-      dec,
-      price,
+      description,
+      realPrice,
       piece,
-      per_month,
-      old_price,
-      type,
+      perMonth,
+      oldPrice,
+      category,
     });
 
     await newProduct.save();
@@ -110,21 +121,32 @@ app.delete("/delete/:id", async (req, res) => {
 });
 
 app.put("/put/:id", async (req, res) => {
-  const { name, user, imgags, dec, price, piece, per_month, old_price, type } =
-    req.body;
+  const {
+    name,
+    user,
+    imgags,
+    description,
+    realPrice,
+    piece,
+    perMonth,
+    oldPrice,
+    category,
+    titel,
+  } = req.body;
   const id = req.params.id;
 
   try {
     const updateProduct = {
       name,
       user,
+      titel,
       imgags,
-      dec,
-      price,
+      description,
+      realPrice,
       piece,
-      per_month,
-      old_price,
-      type,
+      perMonth,
+      oldPrice,
+      category,
     };
 
     const result = await Product.findByIdAndUpdate(
