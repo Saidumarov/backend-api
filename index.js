@@ -25,13 +25,14 @@ const Contact = mongoose.model("Contact", contactSchema);
 const productSchema = new mongoose.Schema({
   name: String,
   user: Object,
+  titel: String,
   imgags: Object,
-  dec: String,
-  price: Number,
-  old_price: Number,
-  per_month: Number,
+  description: String,
+  realPrice: Number,
+  oldPrice: Number,
+  perMonth: Number,
   piece: Number,
-  type: String,
+  category: String,
 });
 
 // Data model for products
