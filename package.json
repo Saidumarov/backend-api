@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Saidumarov/JsonApi.git"
+    "url": "git+https://github.com/Saidumarov/backend-api.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com//Saidumarov/JsonApi/issues"
+    "url": "https://github.com//Saidumarov/backend-api/issues"
   },
-  "homepage": "https://github.com//Saidumarov/JsonApi#readme",
+  "homepage": "https://github.com//Saidumarov/backend-api#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "json-serve": "^0.1.0",
