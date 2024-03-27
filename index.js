@@ -39,7 +39,7 @@ const productSchema = new mongoose.Schema({
 const Product = mongoose.model("Product", productSchema);
 
 // Product routes
-app.get("/products", async (req, res) => {
+app.get("/product", async (req, res) => {
   try {
     const products = await Product.find();
     res.json(products);
