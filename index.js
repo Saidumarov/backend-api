@@ -33,6 +33,7 @@ const productSchema = new mongoose.Schema({
   perMonth: Number,
   piece: Number,
   category: String,
+  brend: String,
   isDiscounts: Boolean,
 });
 
@@ -82,6 +83,7 @@ app.post("/newProduct", async (req, res) => {
     category,
     titel,
     isDiscounts,
+    brend,
   } = req.body;
 
   try {
@@ -97,6 +99,7 @@ app.post("/newProduct", async (req, res) => {
       oldPrice,
       category,
       isDiscounts,
+      brend,
     });
 
     await newProduct.save();
@@ -136,6 +139,7 @@ app.put("/put/:id", async (req, res) => {
     category,
     titel,
     isDiscounts,
+    brend,
   } = req.body;
   const id = req.params.id;
 
@@ -152,6 +156,7 @@ app.put("/put/:id", async (req, res) => {
       oldPrice,
       category,
       isDiscounts,
+      brend,
     };
 
     const result = await Product.findByIdAndUpdate(
