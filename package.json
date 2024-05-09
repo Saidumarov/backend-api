@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "full stack",
-  "main": "server.js",
+  "main": "./service/server.js",
   "engines": {
     "node": "18.x"
   },
