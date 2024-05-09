@@ -2,13 +2,13 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "full stack",
-  "main": "server.js",
+  "main": "service/index.js",
   "engines": {
-    "node": "20.x"
+    "node": "18.x"
   },
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node service/index.js",
+    "dev": "nodemon service/index.js"
   },
   "keywords": [
     "mongo",

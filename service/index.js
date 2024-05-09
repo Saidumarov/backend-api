@@ -1,16 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const registerRouter = require("./auth/register");
-const users = require("./auth/user");
-const productRouter = require("./product");
-const bannerRouter = require("./banner/index");
-const loginRouter = require("./auth/login");
-const filterRouter = require("./filter/filter");
-const sortRouter = require("./filter/sort");
-const pagenationRouter = require("./pagination/index");
-const searchRouter = require("./search/index");
-const { MONGO_URI } = require("./api/index");
+const registerRouter = require("../auth/register");
+const users = require("../auth/user");
+const productRouter = require("../product");
+const bannerRouter = require("../banner/index");
+const loginRouter = require("../auth/login");
+const filterRouter = require("../filter/filter");
+const sortRouter = require("../filter/sort");
+const pagenationRouter = require("../pagination/index");
+const searchRouter = require("../search/index");
+const { MONGO_URI } = require("../api/index");
 
 const app = express();
 
