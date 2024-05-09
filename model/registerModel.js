@@ -10,3 +10,5 @@ const registerSchema = new mongoose.Schema({
 const Register = mongoose.model("Contact", registerSchema);
 
 module.exports = Register;
+
+
