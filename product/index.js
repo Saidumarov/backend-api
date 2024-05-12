@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
 
 // GET /product/:id
 
-router.get("/product/:id", async (req, res) => {
+router.get("/products/:id", async (req, res) => {
   const id = req.params.id;
 
   if (!id) {
@@ -149,5 +149,3 @@ router.put("/put/:id", async (req, res) => {
 });
 
 module.exports = router;
-
-
