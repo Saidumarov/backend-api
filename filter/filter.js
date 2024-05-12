@@ -13,7 +13,16 @@ router.get("/:category", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+router.get("/:category/:brend", async (req, res) => {
+  const category = req.params.category;
+  const brend = req.params.brend;
+
+  try {
+    const products = await Product.find({ brend: brend });
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 
 module.exports = router;
-
-
