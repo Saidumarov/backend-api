@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
   try {
     const authHeader = req.headers.authorization;
     if (authHeader !== "12345678") {
-      return res.status(401).json({ error: "Unauthorized" });
+      return res.status(401).json({ error: "No unauthorized access" });
     }
     const register = await Register.find();
     res.json(register);
@@ -26,7 +26,7 @@ router.get("/:id", async (req, res) => {
   }
 
   if (authHeader !== "12345678") {
-    return res.status(401).json({ error: "Unauthorized" });
+    return res.status(401).json({ error: "No unauthorized access" });
   }
 
   try {
