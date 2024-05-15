@@ -171,3 +171,51 @@ module.exports = router;
 // });
 
 // module.exports = router;
+
+// xabar yuborish
+
+// const express = require('express');
+// const nodemailer = require('nodemailer');
+// const app = express();
+
+// // Express middleware for parsing JSON bodies
+// app.use(express.json());
+
+// // Endpoint for sending email
+// app.post('/send-email', async (req, res) => {
+//     try {
+//         // Extracting email details from the request body
+//         const { to, subject, text } = req.body;
+
+//         // Creating a transporter
+//         let transporter = nodemailer.createTransport({
+//             service: 'Gmail', // You can use any email service here
+//             auth: {
+//                 user: 'your-email@gmail.com', // Sender email
+//                 pass: 'your-password' // Sender password
+//             }
+//         });
+
+//         // Defining email options
+//         let mailOptions = {
+//             from: 'your-email@gmail.com', // Sender address
+//             to: to, // List of receivers
+//             subject: subject, // Subject line
+//             text: text // Plain text body
+//         };
+
+//         // Sending email
+//         let info = await transporter.sendMail(mailOptions);
+//         console.log("Email sent: ", info.response);
+
+//         res.status(200).json({ message: 'Email sent successfully' });
+//     } catch (error) {
+//         console.error("Error while sending email: ", error);
+//         res.status(500).json({ error: 'Failed to send email' });
+//     }
+// });
+
+// // Server listening
+// app.listen(3000, () => {
+//     console.log('Server is running on port 3000');
+// });
