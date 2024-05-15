@@ -3,9 +3,12 @@ const express = require("express");
 const router = express.Router();
 const Product = require("../model/productModel");
 
-// GET /products
 router.get("/", async (req, res) => {
   try {
+    const authHeader = req.headers.authorization;
+    if (authHeader !== "12345678") {
+      return res.status(401).json({ error: "Unauthorized" });
+    }
     const products = await Product.find();
     res.json(products);
   } catch (err) {
@@ -17,12 +20,16 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
-
   if (!id) {
     return res.status(400).json({ error: "Invalid ID" });
   }
 
   try {
+    const authHeader = req.headers.authorization;
+    if (authHeader !== "12345678") {
+      return res.status(401).json({ error: "Unauthorized" });
+    }
+
     const product = await Product.findById(id);
 
     if (!product) {
@@ -37,6 +44,10 @@ router.get("/:id", async (req, res) => {
 
 // POST /newProduct
 router.post("/newProduct", async (req, res) => {
+  const authHeader = req.headers.authorization;
+  if (authHeader !== "12345678") {
+    return res.status(401).json({ error: "Unauthorized" });
+  }
   const {
     name,
     user,
@@ -81,6 +92,10 @@ router.delete("/delete/:id", async (req, res) => {
   const id = req.params.id;
 
   try {
+    const authHeader = req.headers.authorization;
+    if (authHeader !== "12345678") {
+      return res.status(401).json({ error: "Unauthorized" });
+    }
     const result = await Product.findByIdAndDelete(id);
 
     if (result) {
@@ -97,6 +112,11 @@ router.delete("/delete/:id", async (req, res) => {
 // PUT /product/:id
 
 router.put("/put/:id", async (req, res) => {
+  const authHeader = req.headers.authorization;
+  if (authHeader !== "12345678") {
+    return res.status(401).json({ error: "Unauthorized" });
+  }
+
   const {
     name,
     user,
