@@ -6,7 +6,7 @@ const Product = require("../model/productModel");
 router.get("/", async (req, res) => {
   try {
     const authHeader = req.headers.authorization;
-    if (authHeader !== "12345678") {
+    if (authHeader !== "123456789") {
       return res.status(401).json({ error: "No unauthorized access" });
     }
     const products = await Product.find();
