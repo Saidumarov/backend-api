@@ -17,7 +17,6 @@ router.get("/", async (req, res) => {
 });
 
 // GET /product/:id
-
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
   if (!id) {
@@ -110,7 +109,6 @@ router.delete("/delete/:id", async (req, res) => {
 });
 
 // PUT /product/:id
-
 router.put("/put/:id", async (req, res) => {
   const authHeader = req.headers.authorization;
   if (authHeader !== "12345678") {
@@ -156,10 +154,8 @@ router.put("/put/:id", async (req, res) => {
     );
 
     if (result) {
-      console.log("Update successful");
       res.json({ message: "Update successful", updateProduct: result });
     } else {
-      console.log("Product not found");
       res.status(404).json({ message: "Product not found" });
     }
   } catch (err) {

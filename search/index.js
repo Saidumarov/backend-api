@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
         { description: { $regex: query, $options: "i" } },
         { titel: { $regex: query, $options: "i" } },
         { category: { $regex: query, $options: "i" } },
-        { brend: { $regex: query, $op6tions: "i" } },
+        { brend: { $regex: query, $options: "i" } },
       ],
     });
 

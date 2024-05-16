@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
   if (!id) {
-    return res.status(400).json({ error: "Invalid ID" });
+    return res.status(400).json({ error: "Yaroqsiz ID" });
   }
 });
 
@@ -44,18 +44,17 @@ router.delete("/delete/:id", async (req, res) => {
   try {
     const result = await Banner.findByIdAndDelete(id);
     if (result) {
-      res.status(200).json({ message: "Delete successful" });
+      res.status(200).json({ message: "Oʻchirish muvaffaqiyatli" });
     } else {
-      res.status(404).json({ message: "Banner not found" });
+      res.status(404).json({ message: "Banner topilmadi" });
     }
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: "Serverdagi ichki xatolik" });
   }
 });
 
 // PUT /banner/:id
-
 router.put("/put/:id", async (req, res) => {
   const { img } = req.body;
   const id = req.params.id;
@@ -71,18 +70,14 @@ router.put("/put/:id", async (req, res) => {
     );
 
     if (result) {
-      console.log("Update successful");
-      res.json({ message: "Update successful", updateBanner: result });
+      res.json({ message: "Yangilanish muvaffaqiyatli", updateBanner: result });
     } else {
-      console.log("Banner not found");
-      res.status(404).json({ message: "Banner not found" });
+      res.status(404).json({ message: "Banner topilmadi" });
     }
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: "Serverdagi ichki xatolik" });
   }
 });
 
 module.exports = router;
-
-

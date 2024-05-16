@@ -5,10 +5,9 @@ const registerSchema = new mongoose.Schema({
   name: String,
   email: String,
   password: String,
+  new_password: String,
 });
 
-const Register = mongoose.model("Contact", registerSchema);
+const Register = mongoose.model("Users", registerSchema);
 
 module.exports = Register;
-
-
