@@ -5,21 +5,22 @@ const Product = require("../model/productModel");
 router.get("/", async (req, res) => {
   let sortOption = req.query.sort;
 
-  // Sortirovka parametri bo'lmaganda, default holat
+  // Default sorting option if not provided
   if (!sortOption) {
-    sortOption = "asc"; // Defolt holatda chiqadigan sortirovka
+    sortOption = "defolt";
   }
-
   try {
     let products;
 
-    // Sortirovka parametri bo'yicha mahsulotlarni topish
+    // Fetch products based on sort option
     if (sortOption === "asc") {
       products = await Product.find().sort({ realPrice: 1 });
     } else if (sortOption === "desc") {
       products = await Product.find().sort({ realPrice: -1 });
+    } else if (sortOption === "defolt") {
+      products = await Product.find();
     } else {
-      // Noto'g'ri sortirovka parametri
+      // Invalid sorting parameter
       return res
         .status(400)
         .json({ message: "Noto'g'ri sortirovka parametri" });
@@ -38,7 +39,7 @@ router.get("/:category", async (req, res) => {
 
   // Sortirovka parametri bo'lmaganda, default holat
   if (!sortOption) {
-    sortOption = "asc"; // Defolt holatda chiqadigan sortirovka
+    sortOption = "defolt";
   }
 
   try {
@@ -53,6 +54,8 @@ router.get("/:category", async (req, res) => {
       products = await Product.find({ category: category }).sort({
         realPrice: -1,
       });
+    } else if (sortOption === "defolt") {
+      products = await Product.find({ category: category });
     } else {
       // Noto'g'ri sortirovka parametri
       return res
@@ -74,9 +77,8 @@ router.get("/:category/:brend", async (req, res) => {
 
   // Sortirovka parametri bo'lmaganda, default holat
   if (!sortOption) {
-    sortOption = "asc"; // Defolt holatda chiqadigan sortirovka
+    sortOption = "defolt";
   }
-
   try {
     let products;
 
@@ -89,6 +91,8 @@ router.get("/:category/:brend", async (req, res) => {
       products = await Product.find({ category: category, brend: brend }).sort({
         realPrice: -1,
       });
+    } else if (sortOption === "defolt") {
+      products = await Product.find({ category: category, brend: brend });
     } else {
       // Noto'g'ri sortirovka parametri
       return res
