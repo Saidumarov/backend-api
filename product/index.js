@@ -6,7 +6,7 @@ const Product = require("../model/productModel");
 router.get("/", async (req, res) => {
   try {
     const authHeader = req.headers.authorization;
-    if (authHeader !== "12345678") {
+    if (authHeader !== "9876543210") {
       return res.status(401).json({ error: "No unauthorized access" });
     }
     const products = await Product.find();
@@ -25,7 +25,7 @@ router.get("/:id", async (req, res) => {
 
   try {
     const authHeader = req.headers.authorization;
-    if (authHeader !== "12345678") {
+    if (authHeader !== "9876543210") {
       return res.status(401).json({ error: "No unauthorized access" });
     }
 
@@ -44,7 +44,7 @@ router.get("/:id", async (req, res) => {
 // POST /newProduct
 router.post("/newProduct", async (req, res) => {
   const authHeader = req.headers.authorization;
-  if (authHeader !== "12345678") {
+  if (authHeader !== "9876543210") {
     return res.status(401).json({ error: "No unauthorized access" });
   }
   const {
@@ -92,7 +92,7 @@ router.delete("/delete/:id", async (req, res) => {
 
   try {
     const authHeader = req.headers.authorization;
-    if (authHeader !== "12345678") {
+    if (authHeader !== "9876543210") {
       return res.status(401).json({ error: "No unauthorized access" });
     }
     const result = await Product.findByIdAndDelete(id);
@@ -111,7 +111,7 @@ router.delete("/delete/:id", async (req, res) => {
 // PUT /product/:id
 router.put("/put/:id", async (req, res) => {
   const authHeader = req.headers.authorization;
-  if (authHeader !== "12345678") {
+  if (authHeader !== "9876543210") {
     return res.status(401).json({ error: "No unauthorized access" });
   }
 

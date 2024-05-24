@@ -7,7 +7,7 @@ const bcrypt = require("bcrypt");
 router.get("/", async (req, res) => {
   try {
     const authHeader = req.headers.authorization;
-    if (authHeader !== "12345678") {
+    if (authHeader !== "9876543210") {
       return res.status(401).json({ error: "Ruxsatsiz kirish yo'q" });
     }
     const register = await Register.find();
@@ -26,7 +26,7 @@ router.get("/:id", async (req, res) => {
     return res.status(400).json({ error: "Yaroqsiz ID" });
   }
 
-  if (authHeader !== "12345678") {
+  if (authHeader !== "9876543210") {
     return res.status(401).json({ error: "Ruxsatsiz kirish yo'q" });
   }
 
