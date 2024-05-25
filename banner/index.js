@@ -6,6 +6,10 @@ const Banner = require("../model/bannerModule");
 // GET /banner
 router.get("/", async (req, res) => {
   try {
+    const authHeader = req.headers.authorization;
+    if (authHeader !== "9876543210") {
+      return res.status(401).json({ error: "No unauthorized access" });
+    }
     const banners = await Banner.find();
     res.json(banners);
   } catch (err) {
@@ -25,6 +29,10 @@ router.get("/:id", async (req, res) => {
 // POST /banner
 router.post("/newBanner", async (req, res) => {
   const { img } = req.body;
+  const authHeader = req.headers.authorization;
+  if (authHeader !== "9876543210") {
+    return res.status(401).json({ error: "No unauthorized access" });
+  }
   try {
     const newBanner = new Banner({
       img,
@@ -42,6 +50,10 @@ router.post("/newBanner", async (req, res) => {
 router.delete("/delete/:id", async (req, res) => {
   const id = req.params.id;
   try {
+    const authHeader = req.headers.authorization;
+    if (authHeader !== "9876543210") {
+      return res.status(401).json({ error: "No unauthorized access" });
+    }
     const result = await Banner.findByIdAndDelete(id);
     if (result) {
       res.status(200).json({ message: "Oʻchirish muvaffaqiyatli" });
@@ -58,6 +70,10 @@ router.delete("/delete/:id", async (req, res) => {
 router.put("/put/:id", async (req, res) => {
   const { img } = req.body;
   const id = req.params.id;
+  const authHeader = req.headers.authorization;
+  if (authHeader !== "9876543210") {
+    return res.status(401).json({ error: "No unauthorized access" });
+  }
   try {
     const updateBanner = {
       img,
