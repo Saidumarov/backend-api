@@ -1,4 +1,3 @@
-// bannerModel.js
 const mongoose = require("mongoose");
 
 const bannerSchema = new mongoose.Schema({
@@ -8,5 +7,3 @@ const bannerSchema = new mongoose.Schema({
 const Banner = mongoose.model("Banner", bannerSchema);
 
 module.exports = Banner;
-
-
